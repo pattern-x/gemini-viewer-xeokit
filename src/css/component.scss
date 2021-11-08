@@ -1,0 +1,65 @@
+.follow-tooltip {
+    z-index: 99999999;
+    position: absolute;
+    padding: 6px;
+    background: rgba(25, 25, 25, 0.3);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 12px;
+    border-radius: 2px;
+}
+
+.pop-panel {
+    z-index: 99999999;
+    top: calc(70% - 100px);
+    left: calc(90% - 160px);
+    position: absolute;
+    background: #ffffff;
+    color: #333333;
+    border-radius: 4px;
+    width: 160px;
+    box-shadow: 0px 12px 48px 16px rgba(0, 0, 0, 0.03), 0px 9px 28px 0px rgba(0, 0, 0, 0.05), 0px 6px 16px -8px rgba(0, 0, 0, 0.08);
+    
+    .pop-panel-header {
+        font-size: 16px;
+        font-weight: bolder;
+        padding: 16px 24px 8px 24px;
+        color: #333333;
+        border-bottom: 1px solid #EFEFEF;
+        cursor: move;
+    }
+
+    .pop-panel-body {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 24px 16px 24px;
+        
+        .pop-panel-item {
+            display: inline-block;
+            cursor: pointer;
+            margin-right: 16px;
+            font-size: 16px;
+            .gemini-viewer-icon {
+                font-size: 24px;
+            }
+        }
+        
+        .pop-panel-item:last-child {
+            margin-right: 0;
+        }
+
+        .pop-panel-item:hover {
+            color: $gemini-active;
+        }
+
+        .pop-panel-item.active {
+            color: $gemini-active;
+        }
+
+        .pop-panel-item.disable {
+            color: #999;
+            cursor: not-allowed;
+        }
+    }
+}

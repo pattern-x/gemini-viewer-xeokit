@@ -1,0 +1,123 @@
+.canvas {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.camera-pivot-marker {
+    color: #ffffff;
+    line-height: 1.8;
+    text-align: center;
+    font-family: "monospace";
+    font-weight: bold;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 15px;
+    border: 2px solid #ebebeb;
+    background: black;
+    visibility: hidden;
+    box-shadow: 3px 3px 9px 1px #000000;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+/* ----------------------------------------------------------------------------------------------------------*/
+/* TreeViewPlugin (Put it in a separate css file later)
+/* ----------------------------------------------------------------------------------------------------------*/
+#treeViewContainer {
+    visibility: hidden;
+    pointer-events: all;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: black;
+    z-index: 1;
+    float: left;
+    left: 0;
+    padding: 10px;
+    font-family: "Roboto", sans-serif;
+    font-size: 15px;
+    text-align: left;
+    user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    width: 350px;
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    ul {
+        list-style: none;
+        padding-left: 1.75em;
+        pointer-events: none;
+
+        li {
+            position: relative;
+            width: 500px;
+            pointer-events: none;
+            padding-top: 3px;
+            padding-bottom: 3px;
+            vertical-align: middle;
+
+            a {
+                background-color: #eee;
+                border-radius: 50%;
+                color: #000;
+                display: inline-block;
+                height: 1.5em;
+                left: -1.5em;
+                position: absolute;
+                text-align: center;
+                text-decoration: none;
+                width: 1.5em;
+                pointer-events: all;
+            }
+
+            a.plus {
+                background-color: #ded;
+                pointer-events: all;
+            }
+
+            a.minus {
+                background-color: #eee;
+                pointer-events: all;
+            }
+
+            a:active {
+                top: 1px;
+                pointer-events: all;
+            }
+
+            span:hover {
+                color: white;
+                cursor: pointer;
+                background: black;
+                padding-left: 2px;
+                pointer-events: all;
+            }
+
+            span {
+                display: inline-block;
+                width: calc(100% - 50px);
+                padding-left: 2px;
+                pointer-events: all;
+                height: 23px;
+            }
+        }
+    }
+
+    .highlighted-node {
+        /* Appearance of node highlighted with TreeViewPlugin#showNode() */
+        border: black solid 1px;
+        background: yellow;
+        color: black;
+        padding-left: 1px;
+        padding-right: 5px;
+        pointer-events: all;
+    }
+}

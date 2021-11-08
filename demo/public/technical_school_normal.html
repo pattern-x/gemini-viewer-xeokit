@@ -1,0 +1,100 @@
+<html>
+
+<head></head>
+
+<body>
+    <div>
+        <canvas id="myCanvas" class="canvas"></canvas>
+        <div id="pivotMarker" class="camera-pivot-marker"></div>
+        <div id="treeViewContainer"></div>
+    </div>
+    <script type="module">
+        import { BimViewer, KeyBoardRotatePlugin, ToolbarMenuId } from "./dist/gemini-viewer.esm.js";
+
+        const project = {
+            id: "technical_school_normal",
+            name: "technical_school_normal",
+            thumbnail: "/projects/technical_school_normal/thumbnail.png",
+            camera: {
+                eye: [-65, 37, 41],
+                look: [-15, 0, 15],
+                up: [0, 1, 0],
+                far: 10000,
+            },
+            models: [
+                {
+                    name: "technical school normal",
+                    src: "/projects/technical_school_normal/Technical_school-current_m.gltf",
+                    position: [0, 0, 0],
+                    rotation: [0, 0, 0],
+                    scale: [1, 1, 1],
+                    edges: true,
+                    visible: true,
+                },
+            ],
+        };
+        const bimViewer = new BimViewer(
+            {
+                canvasId: "myCanvas",
+                // use default css if navCubeCanvasId or axisGizmoCanvasId not given
+                // navCubeCanvasId: "myNavCubeCanvas",
+                // axisGizmoCanvasId: "myAxisGizmoCanvas",
+                swapYZ: true,
+                activeOrthoMode: true,
+                // locale: "en"
+                skyBoxImgSrc: "images/skybox/default.png"
+            },
+            project.camera
+        );
+        new KeyBoardRotatePlugin(bimViewer.viewer);
+        // loadProjectModel
+        let counter = 0; // to indicate how many models are loading
+        project.models.forEach((modelCfg) => {
+            if (modelCfg.visible === false) {
+                // visible is true by default
+                return; // only load visible ones
+            }
+            counter++;
+            bimViewer.loadModel(modelCfg, (model) => {
+                counter--;
+                if (counter === 0) {
+                    if (bimViewer.has2dModel && !bimViewer.has3dModel) {
+                        bimViewer.active2dMode();
+                    }
+                }
+                // Do something with model
+                // console.log("model:", model);
+
+                // Gets the image data of the model canvas.
+                // console.log(bimViewer.getCanvasImageDataUrl());
+            });
+        });
+
+        /**
+         * User could set the visibility for Models and Objects.
+         *
+         * ## Example:
+         *
+         * bimViewer.setModelVisibility(model, false);
+         *
+         * bimViewer.setObjectsVisibility(
+         *     [
+         *         "technical school normal#BuildingPad 建筑地坪 <130737 Pad 1>",
+         *         "technical school normal#TopographySurface 地形 <105545 表面>",
+         *     ],
+         *     false
+         * );
+         *
+         * const toolbar = bimViewer.toolbar;
+         * toolbar.updateMenus([
+         *     { menuId: ToolbarMenuId.BimTree, config: { visible: false } },
+         *     { menuId: ToolbarMenuId.OrthoMode, config: { visible: false } },
+         *     { menuId: ToolbarMenuId.Measure, config: { visible: false } }
+         * ]);
+         * toolbar.updateMenu(ToolbarMenuId.Viewpoint, { onActive: this.handleActive });
+         *
+         **/
+    </script>
+</body>
+
+</html>

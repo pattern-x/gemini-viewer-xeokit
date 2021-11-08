@@ -1,0 +1,28 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "outDir": "./dist/types",
+        "declaration": true,
+        "declarationDir": "dist/types",
+        "strict": true,
+        "importsNotUsedAsValues": "preserve",
+        "downlevelIteration": true,
+        "sourceMap": true,
+        "module": "es6",
+        "target": "es6",
+        "moduleResolution": "node",
+        "lib": [
+            "dom"
+        ],
+        "noImplicitAny": true,
+        "paths": {
+            "src/*": [
+                "src/*"
+            ]
+        }
+    },
+    "exclude": [
+        "node_modules",
+        "dist"
+    ]
+}

@@ -1,0 +1,67 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="assets/css/rac_basic_sample_project.css">
+</head>
+
+<body>
+    <div class="project-panel">
+        <canvas id="myCanvas" class="canvas"></canvas>
+        <canvas id="myNavCubeCanvas"></canvas>
+        <canvas id="myAxisGizmoCanvas"></canvas>
+        <div id="pivotMarker" class="customize-pivot-marker"></div>
+        <div id="treeViewContainer"></div>
+    </div>
+    <script type="module">
+        import { BimViewer, KeyBoardRotatePlugin } from "./dist/gemini-viewer.esm.js";
+
+        const project = {
+            "id": "rac_basic_sample_project",
+            "name": "rac_basic_sample_project",
+            "thumbnail": "/projects/rac_basic_sample_project/thumbnail.png",
+            "camera": {
+                "eye": [-65, 37, 41],
+                "look": [-15, 0, 15],
+                "up": [0, 1, 0],
+                "far": 10000
+            },
+            "models": [{
+                "name": "rac basic sample project",
+                "src": "/projects/rac_basic_sample_project/rac_basic_sample_project.gltf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=minioadmin%2F20211027%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211027T061403Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=9f4b0dfba3258ded6abbdbf225c44f6650f6226d5f1dc5fce1fc7d28df3701a7",
+                "position": [0, 0, 0],
+                "rotation": [0, 0, 0],
+                "scale": [1, 1, 1],
+                "edges": true,
+                "visible": true
+            }]
+        }
+        const bimViewer = new BimViewer(
+            {
+                canvasId: "myCanvas",
+                navCubeCanvasId: "myNavCubeCanvas",
+                axisGizmoCanvasId: "myAxisGizmoCanvas",
+            },
+            project.camera
+        );
+        new KeyBoardRotatePlugin(bimViewer.viewer);
+        // loadProjectModel
+        let counter = 0; // to indicate how many models are loading
+        project.models.forEach((modelCfg) => {
+            if (modelCfg.visible === false) {
+                // visible is true by default
+                return; // only load visible ones
+            }
+            counter++;
+            bimViewer.loadModel(modelCfg, () => {
+                counter--;
+                if (counter === 0) {
+                    if (bimViewer.has2dModel && !bimViewer.has3dModel) {
+                        bimViewer.active2dMode();
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

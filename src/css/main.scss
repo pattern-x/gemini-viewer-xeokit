@@ -1,0 +1,42 @@
+$gemini-yellow: #f99d0b;
+$gemini-red: #c9322f;
+$gemini-green: #15a05a;
+
+$gemini-blue: #1894bd;
+$gemini-blue2: #2c7be5;
+
+$gemini-grey: #999999;
+$gemini-grey2: #666666;
+$gemini-grey-o50: rgba(153, 153, 153, 0.8);
+
+$gemini-white: #fff;
+$gemini-white2: rgba(255, 255, 255, 0.8);
+
+$gemini-black: #141414;
+
+// Measurement
+$gemini-length-color: $gemini-yellow;
+$gemini-x-color: $gemini-red;
+$gemini-y-color: $gemini-green;
+$gemini-z-color: $gemini-blue;
+
+// Common
+$gemini-active: $gemini-blue2;
+
+// Global
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+@import url("//at.alicdn.com/t/font_2809422_vnk67d7xjsm.css");
+@import "preset.scss";
+@import "bottombar.scss";
+@import "component.scss";
+@import "contextmenu.scss";
+@import "measurement.scss";
+@import "toolbar.scss";

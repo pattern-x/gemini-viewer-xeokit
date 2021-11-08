@@ -1,0 +1,196 @@
+<!DOCTYPE html><html class="default no-js"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>@pattern-x/gemini-viewer</title><meta name="description" content="Documentation for @pattern-x/gemini-viewer"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script async src="assets/search.js" id="search-script"></script></head><body><script>document.body.classList.add(localStorage.getItem("tsd-theme") || "os")</script><header><div class="tsd-page-toolbar"><div class="container"><div class="table-wrap"><div class="table-cell" id="tsd-search" data-base="."><div class="field"><label for="tsd-search-field" class="tsd-widget search no-caption">Search</label><input type="text" id="tsd-search-field"/></div><ul class="results"><li class="state loading">Preparing search index...</li><li class="state failure">The search index is not available</li></ul><a href="index.html" class="title">@pattern-x/gemini-viewer</a></div><div class="table-cell" id="tsd-widgets"><div id="tsd-filter"><a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a><div class="tsd-filter-group"><div class="tsd-select" id="tsd-filter-visibility"><span class="tsd-select-label">All</span><ul class="tsd-select-list"><li data-value="public">Public</li><li data-value="protected">Public/Protected</li><li data-value="private" class="selected">All</li></ul></div> <input type="checkbox" id="tsd-filter-inherited" checked/><label class="tsd-widget" for="tsd-filter-inherited">Inherited</label><input type="checkbox" id="tsd-filter-externals" checked/><label class="tsd-widget" for="tsd-filter-externals">Externals</label></div></div><a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a></div></div></div></div><div class="tsd-page-title"><div class="container"><h1>@pattern-x/gemini-viewer</h1></div></div></header><div class="container container-main"><div class="row"><div class="col-8 col-content"><div class="tsd-panel tsd-typography">
+<a href="#gemini-viewer" id="gemini-viewer" style="color: inherit; text-decoration: none;">
+  <h1>gemini-viewer</h1>
+</a>
+<p>WebGL BIM Viewer based on xeoKit-sdk, written with TypeScript.</p>
+
+<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+  <h2>Installation</h2>
+</a>
+<p>To install from npm:</p>
+<pre><code><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-0">install</span><span class="hl-1"> @</span><span class="hl-0">pattern</span><span class="hl-1">-</span><span class="hl-0">x</span><span class="hl-1">/</span><span class="hl-0">gemini</span><span class="hl-1">-</span><span class="hl-0">viewer</span>
+</code></pre>
+
+<a href="#documentation" id="documentation" style="color: inherit; text-decoration: none;">
+  <h2>Documentation</h2>
+</a>
+<p>The documents are under the <code>./docs</code>.
+To generate the documents:</p>
+<pre><code><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-0">run</span><span class="hl-1"> </span><span class="hl-0">docs</span>
+</code></pre>
+
+<a href="#examples" id="examples" style="color: inherit; text-decoration: none;">
+  <h2>Examples</h2>
+</a>
+<p>To run the demo:</p>
+<pre><code><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-0">run</span><span class="hl-1"> </span><span class="hl-0">demo</span>
+</code></pre>
+<p>And then, visit <a href="localhost:3000/index.html">demo</a>.</p>
+<p>Basic usages for Bimviewer is as followed. For more details, you could refference to <a href="https://github.com/pattern-x/gemini-viewer-ui">gemini-viewer-ui</a> which is a react project build up with gemini-viewer.</p>
+<pre><code><span class="hl-2">import</span><span class="hl-1"> { </span><span class="hl-0">BimViewer</span><span class="hl-1">, </span><span class="hl-0">KeyBoardRotatePlugin</span><span class="hl-1"> } </span><span class="hl-2">from</span><span class="hl-1"> </span><span class="hl-3">&quot;@pattern-x/gemini-viewer&quot;</span><span class="hl-1">;</span><br/><br/><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-5">project</span><span class="hl-1"> = {</span><br/><span class="hl-1">    </span><span class="hl-0">id:</span><span class="hl-1"> </span><span class="hl-3">&quot;technical_school_normal&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-0">name:</span><span class="hl-1"> </span><span class="hl-3">&quot;technical_school_normal&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-0">thumbnail:</span><span class="hl-1"> </span><span class="hl-3">&quot;/projects/technical_school_normal/thumbnail.png&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-0">camera:</span><span class="hl-1"> {</span><br/><span class="hl-1">        </span><span class="hl-0">eye:</span><span class="hl-1"> [-</span><span class="hl-6">65</span><span class="hl-1">, </span><span class="hl-6">37</span><span class="hl-1">, </span><span class="hl-6">41</span><span class="hl-1">],</span><br/><span class="hl-1">        </span><span class="hl-0">look:</span><span class="hl-1"> [-</span><span class="hl-6">15</span><span class="hl-1">, </span><span class="hl-6">0</span><span class="hl-1">, </span><span class="hl-6">15</span><span class="hl-1">],</span><br/><span class="hl-1">        </span><span class="hl-0">up:</span><span class="hl-1"> [</span><span class="hl-6">0</span><span class="hl-1">, </span><span class="hl-6">1</span><span class="hl-1">, </span><span class="hl-6">0</span><span class="hl-1">],</span><br/><span class="hl-1">        </span><span class="hl-0">far:</span><span class="hl-1"> </span><span class="hl-6">10000</span><span class="hl-1">,</span><br/><span class="hl-1">    },</span><br/><span class="hl-1">    </span><span class="hl-0">models:</span><span class="hl-1"> [</span><br/><span class="hl-1">        {</span><br/><span class="hl-1">            </span><span class="hl-0">name:</span><span class="hl-1"> </span><span class="hl-3">&quot;technical school normal&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">            </span><span class="hl-0">src:</span><span class="hl-1"> </span><span class="hl-3">&quot;/projects/technical_school_normal/Technical_school-current_m.gltf&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">            </span><span class="hl-0">position:</span><span class="hl-1"> [</span><span class="hl-6">0</span><span class="hl-1">, </span><span class="hl-6">0</span><span class="hl-1">, </span><span class="hl-6">0</span><span class="hl-1">],</span><br/><span class="hl-1">            </span><span class="hl-0">rotation:</span><span class="hl-1"> [</span><span class="hl-6">0</span><span class="hl-1">, </span><span class="hl-6">0</span><span class="hl-1">, </span><span class="hl-6">0</span><span class="hl-1">],</span><br/><span class="hl-1">            </span><span class="hl-0">scale:</span><span class="hl-1"> [</span><span class="hl-6">1</span><span class="hl-1">, </span><span class="hl-6">1</span><span class="hl-1">, </span><span class="hl-6">1</span><span class="hl-1">],</span><br/><span class="hl-1">            </span><span class="hl-0">edges:</span><span class="hl-1"> </span><span class="hl-4">true</span><span class="hl-1">,</span><br/><span class="hl-1">            </span><span class="hl-0">visible:</span><span class="hl-1"> </span><span class="hl-4">true</span><span class="hl-1">,</span><br/><span class="hl-1">        },</span><br/><span class="hl-1">    ],</span><br/><span class="hl-1">};</span><br/><br/><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-5">bimViewer</span><span class="hl-1"> = </span><span class="hl-4">new</span><span class="hl-1"> </span><span class="hl-7">BimViewer</span><span class="hl-1">(</span><br/><span class="hl-1">    {</span><br/><span class="hl-1">        </span><span class="hl-0">canvasId:</span><span class="hl-1"> </span><span class="hl-3">&quot;myCanvas&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">        </span><span class="hl-8">// use default css if navCubeCanvasId or axisGizmoCanvasId not given</span><br/><span class="hl-1">        </span><span class="hl-8">// navCubeCanvasId: &quot;myNavCubeCanvas&quot;,</span><br/><span class="hl-1">        </span><span class="hl-8">// axisGizmoCanvasId: &quot;myAxisGizmoCanvas&quot;,</span><br/><span class="hl-1">        </span><span class="hl-0">swapYZ:</span><span class="hl-1"> </span><span class="hl-4">true</span><span class="hl-1">,</span><br/><span class="hl-1">        </span><span class="hl-0">activeOrthoMode:</span><span class="hl-1"> </span><span class="hl-4">true</span><span class="hl-1">,</span><br/><span class="hl-1">        </span><span class="hl-8">// locale: &quot;en&quot;</span><br/><span class="hl-1">        </span><span class="hl-0">skyBoxImgSrc:</span><span class="hl-1"> </span><span class="hl-3">&quot;images/skybox/default.png&quot;</span><br/><span class="hl-1">    },</span><br/><span class="hl-1">    </span><span class="hl-0">project</span><span class="hl-1">.</span><span class="hl-0">camera</span><br/><span class="hl-1">);</span><br/><br/><span class="hl-4">new</span><span class="hl-1"> </span><span class="hl-7">KeyBoardRotatePlugin</span><span class="hl-1">(</span><span class="hl-0">bimViewer</span><span class="hl-1">.</span><span class="hl-0">viewer</span><span class="hl-1">);</span><br/><br/><span class="hl-8">// loadProjectModel</span><br/><span class="hl-4">let</span><span class="hl-1"> </span><span class="hl-0">counter</span><span class="hl-1"> = </span><span class="hl-6">0</span><span class="hl-1">; </span><span class="hl-8">// to indicate how many models are loading</span><br/><span class="hl-0">project</span><span class="hl-1">.</span><span class="hl-0">models</span><span class="hl-1">.</span><span class="hl-7">forEach</span><span class="hl-1">((</span><span class="hl-0">modelCfg</span><span class="hl-1">) </span><span class="hl-4">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">    </span><span class="hl-2">if</span><span class="hl-1"> (</span><span class="hl-0">modelCfg</span><span class="hl-1">.</span><span class="hl-0">visible</span><span class="hl-1"> === </span><span class="hl-4">false</span><span class="hl-1">) {</span><br/><span class="hl-1">        </span><span class="hl-8">// visible is true by default</span><br/><span class="hl-1">        </span><span class="hl-2">return</span><span class="hl-1">; </span><span class="hl-8">// only load visible ones</span><br/><span class="hl-1">    }</span><br/><span class="hl-1">    </span><span class="hl-0">counter</span><span class="hl-1">++;</span><br/><span class="hl-1">    </span><span class="hl-0">bimViewer</span><span class="hl-1">.</span><span class="hl-7">loadModel</span><span class="hl-1">(</span><span class="hl-0">modelCfg</span><span class="hl-1">, (</span><span class="hl-0">model</span><span class="hl-1">) </span><span class="hl-4">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">        </span><span class="hl-0">counter</span><span class="hl-1">--;</span><br/><span class="hl-1">        </span><span class="hl-2">if</span><span class="hl-1"> (</span><span class="hl-0">counter</span><span class="hl-1"> === </span><span class="hl-6">0</span><span class="hl-1">) {</span><br/><span class="hl-1">            </span><span class="hl-2">if</span><span class="hl-1"> (</span><span class="hl-0">bimViewer</span><span class="hl-1">.</span><span class="hl-0">has2dModel</span><span class="hl-1"> &amp;&amp; !</span><span class="hl-0">bimViewer</span><span class="hl-1">.</span><span class="hl-0">has3dModel</span><span class="hl-1">) {</span><br/><span class="hl-1">                </span><span class="hl-0">bimViewer</span><span class="hl-1">.</span><span class="hl-7">active2dMode</span><span class="hl-1">();</span><br/><span class="hl-1">            }</span><br/><span class="hl-1">        }</span><br/><span class="hl-1">        </span><span class="hl-8">// Do something with model</span><br/><span class="hl-1">        </span><span class="hl-8">// console.log(&quot;model:&quot;, model);</span><br/><br/><span class="hl-1">        </span><span class="hl-8">// Gets the image data of the model canvas.</span><br/><span class="hl-1">        </span><span class="hl-8">// console.log(bimViewer.getCanvasImageDataUrl());</span><br/><span class="hl-1">    });</span><br/><span class="hl-1">});</span><br/><span class="hl-1">...</span>
+</code></pre>
+
+<a href="#bimviewer-configuration-summary" id="bimviewer-configuration-summary" style="color: inherit; text-decoration: none;">
+  <h2>BimViewer Configuration Summary</h2>
+</a>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>canvasId</td>
+<td>string</td>
+<td></td>
+<td>For <code>Xeokit Viewer</code>.</td>
+</tr>
+<tr>
+<td>enableNavCube</td>
+<td>boolean</td>
+<td>- optional <br> - default: <code>true</code></td>
+<td>Shows the NavCube.</td>
+</tr>
+<tr>
+<td>enableAxisGizmo</td>
+<td>boolean</td>
+<td>- optional <br> - default: <code>true</code></td>
+<td>Shows the AxisGizmo.</td>
+</tr>
+<tr>
+<td>enableToolbar</td>
+<td>boolean</td>
+<td>- optional <br> - default: <code>true</code></td>
+<td>Shows the toolbar.</td>
+</tr>
+<tr>
+<td>enableBottomBar</td>
+<td>boolean</td>
+<td>- optional <br> - default: <code>true</code></td>
+<td>shows the bottom-bar.</td>
+</tr>
+<tr>
+<td>enableContextMenu</td>
+<td>boolean</td>
+<td>- optional <br> - default: <code>true</code></td>
+<td>Shows the context-menu.</td>
+</tr>
+<tr>
+<td>enableFastNav</td>
+<td>boolean</td>
+<td>- optional <br> - default: <code>true</code></td>
+<td>Enables FastNav  <br> Viewer plugin that improves interactivity by disabling expensive rendering effects while the Camera is moving.</td>
+</tr>
+<tr>
+<td>enableSingleSelection</td>
+<td>boolean</td>
+<td>- optional <br> - default: <code>true</code></td>
+<td>Enable single selection.</td>
+</tr>
+<tr>
+<td>spinnerElementId</td>
+<td>string</td>
+<td>- optional</td>
+<td>The id of customized spinner element. <br> For <code>Xeokit Viewer.scene</code>.</td>
+</tr>
+<tr>
+<td>swapYZ</td>
+<td>boolean</td>
+<td>- optional <br> - default: <code>false</code></td>
+<td>Swaps Y / Z axis.</td>
+</tr>
+<tr>
+<td>navCubeCanvasId</td>
+<td>string</td>
+<td>- optional</td>
+<td>The id of the customized canvas to draw NavCube. <br> It will use the default NavCube when this param is empty.</td>
+</tr>
+<tr>
+<td>axisGizmoCanvasId</td>
+<td>string</td>
+<td>- optional</td>
+<td>The id of the customized canvas to draw AxisGizmo. <br> It will use the default AxisGizmo when this param is empty.</td>
+</tr>
+<tr>
+<td>antialias</td>
+<td>boolean</td>
+<td>- optional</td>
+<td>For <code>Xeokit Viewer.scene</code>.</td>
+</tr>
+<tr>
+<td>transparent</td>
+<td>boolean</td>
+<td>- optional</td>
+<td>For <code>Xeokit Viewer.scene</code>.</td>
+</tr>
+<tr>
+<td>gammaInput</td>
+<td>boolean</td>
+<td>- optional</td>
+<td>For <code>Xeokit Viewer.scene</code>.</td>
+</tr>
+<tr>
+<td>gammaOutput</td>
+<td>boolean</td>
+<td>- optional</td>
+<td>For <code>Xeokit Viewer.scene</code>.</td>
+</tr>
+<tr>
+<td>backgroundColor</td>
+<td>number[]</td>
+<td>- optional</td>
+<td>For <code>Xeokit Viewer.scene.canvas</code>.</td>
+</tr>
+<tr>
+<td>units</td>
+<td>string</td>
+<td>- optional <br> - default: <code>&quot;meters&quot;</code></td>
+<td>For <code>Xeokit Viewer.scene.metrics</code>. <br></td>
+</tr>
+<tr>
+<td>scale</td>
+<td>number</td>
+<td>- optional</td>
+<td>For <code>Xeokit Viewer.scene.metrics</code>.</td>
+</tr>
+<tr>
+<td>origin</td>
+<td>number[]</td>
+<td>- optional</td>
+<td>For <code>Xeokit Viewer.scene.metrics</code>.</td>
+</tr>
+<tr>
+<td>saoEnabled</td>
+<td>boolean</td>
+<td>- optional</td>
+<td>For <code>Xeokit Viewer.scene.sao</code>.</td>
+</tr>
+<tr>
+<td>pbrEnabled</td>
+<td>boolean</td>
+<td>- optional</td>
+<td>For <code>Xeokit Viewer.scene</code>.</td>
+</tr>
+<tr>
+<td>activeOrthoMode</td>
+<td>boolean</td>
+<td>- optional</td>
+<td>Enter ortho mode by default.</td>
+</tr>
+<tr>
+<td>locale</td>
+<td>&quot;cn&quot; &#124; &quot;en&quot;</td>
+<td>- optional <br> - default: <code>&quot;cn&quot;</code></td>
+<td>Sets the default locale.</td>
+</tr>
+<tr>
+<td>skyBoxImgSrc</td>
+<td>string</td>
+<td>- optional</td>
+<td>The image src of the skybox.<br> It will use default background color when this param is empty.</td>
+</tr>
+</tbody></table>
+</div></div><div class="col-4 col-menu menu-sticky-wrap menu-highlight"><nav class="tsd-navigation primary"><ul><li class="current"><a href="modules.html">Exports</a></li><li class=" tsd-kind-namespace"><a href="modules/math.html">math</a></li></ul></nav><nav class="tsd-navigation secondary menu-sticky"><ul><li class="tsd-kind-enum"><a href="enums/AxisType.html" class="tsd-kind-icon">Axis<wbr/>Type</a></li><li class="tsd-kind-enum"><a href="enums/BoxSectionPlaneType.html" class="tsd-kind-icon">Box<wbr/>Section<wbr/>Plane<wbr/>Type</a></li><li class="tsd-kind-enum"><a href="enums/CurveType.html" class="tsd-kind-icon">Curve<wbr/>Type</a></li><li class="tsd-kind-enum"><a href="enums/ToolbarMenuId.html" class="tsd-kind-icon">Toolbar<wbr/>Menu<wbr/>Id</a></li><li class="tsd-kind-class"><a href="classes/AxisSectionPlaneController.html" class="tsd-kind-icon">Axis<wbr/>Section<wbr/>Plane<wbr/>Controller</a></li><li class="tsd-kind-class"><a href="classes/AxisSectionPlanePlugin.html" class="tsd-kind-icon">Axis<wbr/>Section<wbr/>Plane<wbr/>Plugin</a></li><li class="tsd-kind-class"><a href="classes/BackgroundColorPlugin.html" class="tsd-kind-icon">Background<wbr/>Color<wbr/>Plugin</a></li><li class="tsd-kind-class"><a href="classes/BimTreeController.html" class="tsd-kind-icon">Bim<wbr/>Tree<wbr/>Controller</a></li><li class="tsd-kind-class"><a href="classes/BimViewer.html" class="tsd-kind-icon">Bim<wbr/>Viewer</a></li><li class="tsd-kind-class"><a href="classes/BottomBar.html" class="tsd-kind-icon">Bottom<wbr/>Bar</a></li><li class="tsd-kind-class"><a href="classes/BoxControl.html" class="tsd-kind-icon">Box<wbr/>Control</a></li><li class="tsd-kind-class"><a href="classes/CommonUtils.html" class="tsd-kind-icon">Common<wbr/>Utils</a></li><li class="tsd-kind-class"><a href="classes/ComponentPropertyPlugin.html" class="tsd-kind-icon">Component<wbr/>Property<wbr/>Plugin</a></li><li class="tsd-kind-class"><a href="classes/Controller.html" class="tsd-kind-icon">Controller</a></li><li class="tsd-kind-class"><a href="classes/CubicBezierCurve.html" class="tsd-kind-icon">Cubic<wbr/>Bezier<wbr/>Curve</a></li><li class="tsd-kind-class tsd-has-type-parameter"><a href="classes/Curve.html" class="tsd-kind-icon">Curve</a></li><li class="tsd-kind-class"><a href="classes/CurvePath.html" class="tsd-kind-icon">Curve<wbr/>Path</a></li><li class="tsd-kind-class"><a href="classes/CustomizedGLTFLoaderPlugin.html" class="tsd-kind-icon">CustomizedGLTFLoader<wbr/>Plugin</a></li><li class="tsd-kind-class"><a href="classes/DxfLoaderPlugin.html" class="tsd-kind-icon">Dxf<wbr/>Loader<wbr/>Plugin</a></li><li class="tsd-kind-class"><a href="classes/DxfPerformanceModelLoader.html" class="tsd-kind-icon">Dxf<wbr/>Performance<wbr/>Model<wbr/>Loader</a></li><li class="tsd-kind-class"><a href="classes/EllipseCurve.html" class="tsd-kind-icon">Ellipse<wbr/>Curve</a></li><li class="tsd-kind-class"><a href="classes/EnhancedDistanceMeasurementPlugin.html" class="tsd-kind-icon">Enhanced<wbr/>Distance<wbr/>Measurement<wbr/>Plugin</a></li><li class="tsd-kind-class"><a href="classes/FontManager.html" class="tsd-kind-icon">Font<wbr/>Manager</a></li><li class="tsd-kind-class"><a href="classes/FullScreenController.html" class="tsd-kind-icon">Full<wbr/>Screen<wbr/>Controller</a></li><li class="tsd-kind-class"><a href="classes/FullScreenPlugin.html" class="tsd-kind-icon">Full<wbr/>Screen<wbr/>Plugin</a></li><li class="tsd-kind-class"><a href="classes/GeometryUtils.html" class="tsd-kind-icon">Geometry<wbr/>Utils</a></li><li class="tsd-kind-class"><a href="classes/GridPlugin.html" class="tsd-kind-icon">Grid<wbr/>Plugin</a></li><li class="tsd-kind-class"><a href="classes/HomeViewController.html" class="tsd-kind-icon">Home<wbr/>View<wbr/>Controller</a></li><li class="tsd-kind-class"><a href="classes/KeyBoardRotatePlugin.html" class="tsd-kind-icon">Key<wbr/>Board<wbr/>Rotate<wbr/>Plugin</a></li><li class="tsd-kind-class"><a href="classes/LineCurve.html" class="tsd-kind-icon">Line<wbr/>Curve</a></li><li class="tsd-kind-class"><a href="classes/Map.html" class="tsd-kind-icon">Map</a></li><li class="tsd-kind-class"><a href="classes/MathUtil.html" class="tsd-kind-icon">Math<wbr/>Util</a></li><li class="tsd-kind-class"><a href="classes/MeasureAreaController.html" class="tsd-kind-icon">Measure<wbr/>Area<wbr/>Controller</a></li><li class="tsd-kind-class"><a href="classes/MeasureClearController.html" class="tsd-kind-icon">Measure<wbr/>Clear<wbr/>Controller</a></li><li class="tsd-kind-class"><a href="classes/MeasureController.html" class="tsd-kind-icon">Measure<wbr/>Controller</a></li><li class="tsd-kind-class"><a href="classes/MeasureDistanceController.html" class="tsd-kind-icon">Measure<wbr/>Distance<wbr/>Controller</a></li><li class="tsd-kind-class"><a href="classes/NavControlConfig.html" class="tsd-kind-icon">Nav<wbr/>Control<wbr/>Config</a></li><li class="tsd-kind-class"><a href="classes/ObjectUtil.html" class="tsd-kind-icon">Object<wbr/>Util</a></li><li class="tsd-kind-class"><a href="classes/OrthoModeController.html" class="tsd-kind-icon">Ortho<wbr/>Mode<wbr/>Controller</a></li><li class="tsd-kind-class"><a href="classes/OrthoModePlugin.html" class="tsd-kind-icon">Ortho<wbr/>Mode<wbr/>Plugin</a></li><li class="tsd-kind-class"><a href="classes/Path.html" class="tsd-kind-icon">Path</a></li><li class="tsd-kind-class"><a href="classes/PlanViewPlugin.html" class="tsd-kind-icon">Plan<wbr/>View<wbr/>Plugin</a></li><li class="tsd-kind-class"><a href="classes/PlaneControl.html" class="tsd-kind-icon">Plane<wbr/>Control</a></li><li class="tsd-kind-class"><a href="classes/PopPanel.html" class="tsd-kind-icon">Pop<wbr/>Panel</a></li><li class="tsd-kind-class"><a href="classes/PropertyController.html" class="tsd-kind-icon">Property<wbr/>Controller</a></li><li class="tsd-kind-class"><a href="classes/QuadraticBezierCurve.html" class="tsd-kind-icon">Quadratic<wbr/>Bezier<wbr/>Curve</a></li><li class="tsd-kind-class"><a href="classes/SceneGraphTreeView.html" class="tsd-kind-icon">Scene<wbr/>Graph<wbr/>Tree<wbr/>View</a></li><li class="tsd-kind-class"><a href="classes/SceneGraphTreeViewPlugin.html" class="tsd-kind-icon">Scene<wbr/>Graph<wbr/>Tree<wbr/>View<wbr/>Plugin</a></li><li class="tsd-kind-class"><a href="classes/SectionBoxController.html" class="tsd-kind-icon">Section<wbr/>Box<wbr/>Controller</a></li><li class="tsd-kind-class"><a href="classes/SectionBoxPlugin.html" class="tsd-kind-icon">Section<wbr/>Box<wbr/>Plugin</a></li><li class="tsd-kind-class"><a href="classes/SectionController.html" class="tsd-kind-icon">Section<wbr/>Controller</a></li><li class="tsd-kind-class"><a href="classes/SectionCullPlanePlugin.html" class="tsd-kind-icon">Section<wbr/>Cull<wbr/>Plane<wbr/>Plugin</a></li><li class="tsd-kind-class"><a href="classes/SectionPlaneController.html" class="tsd-kind-icon">Section<wbr/>Plane<wbr/>Controller</a></li><li class="tsd-kind-class"><a href="classes/SectionPlanePlugin.html" class="tsd-kind-icon">Section<wbr/>Plane<wbr/>Plugin</a></li><li class="tsd-kind-class"><a href="classes/SectionPlanePopPanel.html" class="tsd-kind-icon">Section<wbr/>Plane<wbr/>Pop<wbr/>Panel</a></li><li class="tsd-kind-class"><a href="classes/Shape.html" class="tsd-kind-icon">Shape</a></li><li class="tsd-kind-class"><a href="classes/ShapePath.html" class="tsd-kind-icon">Shape<wbr/>Path</a></li><li class="tsd-kind-class"><a href="classes/ShapeUtils.html" class="tsd-kind-icon">Shape<wbr/>Utils</a></li><li class="tsd-kind-class"><a href="classes/SingleSelectionPlugin.html" class="tsd-kind-icon">Single<wbr/>Selection<wbr/>Plugin</a></li><li class="tsd-kind-class"><a href="classes/SplineCurve.html" class="tsd-kind-icon">Spline<wbr/>Curve</a></li><li class="tsd-kind-class"><a href="classes/TextGeometry.html" class="tsd-kind-icon">Text<wbr/>Geometry</a></li><li class="tsd-kind-class"><a href="classes/Toolbar.html" class="tsd-kind-icon">Toolbar</a></li><li class="tsd-kind-class"><a href="classes/ToolbarMenuBaseController.html" class="tsd-kind-icon">Toolbar<wbr/>Menu<wbr/>Base<wbr/>Controller</a></li><li class="tsd-kind-class"><a href="classes/Tooltip.html" class="tsd-kind-icon">Tooltip</a></li><li class="tsd-kind-class"><a href="classes/ZoomToExtent.html" class="tsd-kind-icon">Zoom<wbr/>To<wbr/>Extent</a></li><li class="tsd-kind-interface"><a href="interfaces/BackgroundColorConfig.html" class="tsd-kind-icon">Background<wbr/>Color<wbr/>Config</a></li><li class="tsd-kind-interface"><a href="interfaces/BimViewerConfig.html" class="tsd-kind-icon">Bim<wbr/>Viewer<wbr/>Config</a></li><li class="tsd-kind-interface"><a href="interfaces/BuildEllipseGeometryConfig.html" class="tsd-kind-icon">Build<wbr/>Ellipse<wbr/>Geometry<wbr/>Config</a></li><li class="tsd-kind-interface"><a href="interfaces/BuildPlaneGeometryConfig.html" class="tsd-kind-icon">Build<wbr/>Plane<wbr/>Geometry<wbr/>Config</a></li><li class="tsd-kind-interface"><a href="interfaces/BuildPlanePositionConfig.html" class="tsd-kind-icon">Build<wbr/>Plane<wbr/>Position<wbr/>Config</a></li><li class="tsd-kind-interface"><a href="interfaces/CameraConfig.html" class="tsd-kind-icon">Camera<wbr/>Config</a></li><li class="tsd-kind-interface"><a href="interfaces/ComponentPropertyConfig.html" class="tsd-kind-icon">Component<wbr/>Property<wbr/>Config</a></li><li class="tsd-kind-interface"><a href="interfaces/Context.html" class="tsd-kind-icon">Context</a></li><li class="tsd-kind-interface"><a href="interfaces/ContextMenuConfig.html" class="tsd-kind-icon">Context<wbr/>Menu<wbr/>Config</a></li><li class="tsd-kind-interface"><a href="interfaces/CustomizedGLTFLoaderConfig.html" class="tsd-kind-icon">CustomizedGLTFLoader<wbr/>Config</a></li><li class="tsd-kind-interface"><a href="interfaces/GridConfig.html" class="tsd-kind-icon">Grid<wbr/>Config</a></li><li class="tsd-kind-interface"><a href="interfaces/GridGeometryConfig.html" class="tsd-kind-icon">Grid<wbr/>Geometry<wbr/>Config</a></li><li class="tsd-kind-interface"><a href="interfaces/GridMeshConfig.html" class="tsd-kind-icon">Grid<wbr/>Mesh<wbr/>Config</a></li><li class="tsd-kind-interface"><a href="interfaces/IconClass.html" class="tsd-kind-icon">Icon<wbr/>Class</a></li><li class="tsd-kind-interface"><a href="interfaces/ModelConfig.html" class="tsd-kind-icon">Model<wbr/>Config</a></li><li class="tsd-kind-interface"><a href="interfaces/OrthoModeConfig.html" class="tsd-kind-icon">Ortho<wbr/>Mode<wbr/>Config</a></li><li class="tsd-kind-interface"><a href="interfaces/SectionCullPlaneConfig.html" class="tsd-kind-icon">Section<wbr/>Cull<wbr/>Plane<wbr/>Config</a></li><li class="tsd-kind-interface"><a href="interfaces/SectionOverviewConfig.html" class="tsd-kind-icon">Section<wbr/>Overview<wbr/>Config</a></li><li class="tsd-kind-interface"><a href="interfaces/SectionPlanePopPanelConfig.html" class="tsd-kind-icon">Section<wbr/>Plane<wbr/>Pop<wbr/>Panel<wbr/>Config</a></li><li class="tsd-kind-interface"><a href="interfaces/SectionPlanePopPanelItemConfig.html" class="tsd-kind-icon">Section<wbr/>Plane<wbr/>Pop<wbr/>Panel<wbr/>Item<wbr/>Config</a></li><li class="tsd-kind-interface"><a href="interfaces/SingleSelectionConfig.html" class="tsd-kind-icon">Single<wbr/>Selection<wbr/>Config</a></li><li class="tsd-kind-interface"><a href="interfaces/TextGeometryParameter.html" class="tsd-kind-icon">Text<wbr/>Geometry<wbr/>Parameter</a></li><li class="tsd-kind-interface"><a href="interfaces/ToolbarMenuConfig.html" class="tsd-kind-icon">Toolbar<wbr/>Menu<wbr/>Config</a></li><li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="modules.html#CallbackRetureVoidType" class="tsd-kind-icon">Callback<wbr/>Reture<wbr/>Void<wbr/>Type</a></li><li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="modules.html#CallbackType" class="tsd-kind-icon">Callback<wbr/>Type</a></li><li class="tsd-kind-type-alias"><a href="modules.html#EmptyCallbackType" class="tsd-kind-icon">Empty<wbr/>Callback<wbr/>Type</a></li><li class="tsd-kind-type-alias"><a href="modules.html#NoParamCallback" class="tsd-kind-icon">No<wbr/>Param<wbr/>Callback</a></li><li class="tsd-kind-type-alias"><a href="modules.html#ToolbarConfig" class="tsd-kind-icon">Toolbar<wbr/>Config</a></li><li class="tsd-kind-type-alias"><a href="modules.html#VecType" class="tsd-kind-icon">Vec<wbr/>Type</a></li><li class="tsd-kind-variable"><a href="modules.html#AXIS_SECTION_PLANE_CONTROL_ID" class="tsd-kind-icon">AXIS_<wbr/>SECTION_<wbr/>PLANE_<wbr/>CONTROL_<wbr/>ID</a></li><li class="tsd-kind-variable"><a href="modules.html#AXIS_SECTION_PLANE_ID" class="tsd-kind-icon">AXIS_<wbr/>SECTION_<wbr/>PLANE_<wbr/>ID</a></li><li class="tsd-kind-variable"><a href="modules.html#DEFAULT_BACKGROUND_COLOR" class="tsd-kind-icon">DEFAULT_<wbr/>BACKGROUND_<wbr/>COLOR</a></li><li class="tsd-kind-variable"><a href="modules.html#DEFAULT_BIM_VIEWER_CONFIG" class="tsd-kind-icon">DEFAULT_<wbr/>BIM_<wbr/>VIEWER_<wbr/>CONFIG</a></li><li class="tsd-kind-variable"><a href="modules.html#DEFAULT_TOOLBAR_CONFIG" class="tsd-kind-icon">DEFAULT_<wbr/>TOOLBAR_<wbr/>CONFIG</a></li><li class="tsd-kind-variable"><a href="modules.html#ENTER_KEY" class="tsd-kind-icon">ENTER_<wbr/>KEY</a></li><li class="tsd-kind-variable"><a href="modules.html#ESC_KEY" class="tsd-kind-icon">ESC_<wbr/>KEY</a></li><li class="tsd-kind-variable"><a href="modules.html#GROUP_CONFIG" class="tsd-kind-icon">GROUP_<wbr/>CONFIG</a></li><li class="tsd-kind-variable"><a href="modules.html#ICON_FONT_CLASS" class="tsd-kind-icon">ICON_<wbr/>FONT_<wbr/>CLASS</a></li><li class="tsd-kind-variable"><a href="modules.html#KEYDOWN_EVENT" class="tsd-kind-icon">KEYDOWN_<wbr/>EVENT</a></li><li class="tsd-kind-variable"><a href="modules.html#KEYUP_EVENT" class="tsd-kind-icon">KEYUP_<wbr/>EVENT</a></li><li class="tsd-kind-variable"><a href="modules.html#MOUSEDOWN_EVENT" class="tsd-kind-icon">MOUSEDOWN_<wbr/>EVENT</a></li><li class="tsd-kind-variable"><a href="modules.html#MOUSEMOVE_EVENT" class="tsd-kind-icon">MOUSEMOVE_<wbr/>EVENT</a></li><li class="tsd-kind-variable"><a href="modules.html#MOUSEUP_EVENT" class="tsd-kind-icon">MOUSEUP_<wbr/>EVENT</a></li><li class="tsd-kind-variable"><a href="modules.html#SECTION_BOX_ID" class="tsd-kind-icon">SECTION_<wbr/>BOX_<wbr/>ID</a></li><li class="tsd-kind-variable"><a href="modules.html#SECTION_PLANE_CONTROL_ID" class="tsd-kind-icon">SECTION_<wbr/>PLANE_<wbr/>CONTROL_<wbr/>ID</a></li><li class="tsd-kind-variable"><a href="modules.html#SECTION_PLANE_ID" class="tsd-kind-icon">SECTION_<wbr/>PLANE_<wbr/>ID</a></li><li class="tsd-kind-variable"><a href="modules.html#SIMPLE_BIM_VIEWER_CONFIG" class="tsd-kind-icon">SIMPLE_<wbr/>BIM_<wbr/>VIEWER_<wbr/>CONFIG</a></li><li class="tsd-kind-variable"><a href="modules.html#cn" class="tsd-kind-icon">cn</a></li><li class="tsd-kind-variable"><a href="modules.html#en" class="tsd-kind-icon">en</a></li><li class="tsd-kind-function"><a href="modules.html#CatmullRom" class="tsd-kind-icon">Catmull<wbr/>Rom</a></li><li class="tsd-kind-function"><a href="modules.html#CubicBezier" class="tsd-kind-icon">Cubic<wbr/>Bezier</a></li><li class="tsd-kind-function"><a href="modules.html#QuadraticBezier" class="tsd-kind-icon">Quadratic<wbr/>Bezier</a></li><li class="tsd-kind-function"><a href="modules.html#addPrefix" class="tsd-kind-icon">add<wbr/>Prefix</a></li><li class="tsd-kind-function"><a href="modules.html#createCurveByType" class="tsd-kind-icon">create<wbr/>Curve<wbr/>By<wbr/>Type</a></li><li class="tsd-kind-function"><a href="modules.html#showContextMenu" class="tsd-kind-icon">show<wbr/>Context<wbr/>Menu</a></li></ul></nav></div></div></div><footer class="with-border-bottom"><div class="container"><h2>Legend</h2><div class="tsd-legend-group"><ul class="tsd-legend"><li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li><li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li><li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li><li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li></ul><ul class="tsd-legend"><li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li><li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li><li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li></ul><ul class="tsd-legend"><li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li><li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li></ul><ul class="tsd-legend"><li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li><li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li></ul><ul class="tsd-legend"><li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li><li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li></ul><ul class="tsd-legend"><li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li></ul></div><h2>Settings</h2><p>Theme <select id="theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></p></div></footer><div class="container tsd-generator"><p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></div><div class="overlay"></div><script src="assets/main.js"></script></body></html>

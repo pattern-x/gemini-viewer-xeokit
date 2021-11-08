@@ -1,0 +1,69 @@
+{
+    "root": true,
+    "env": {
+        "node": true
+    },
+    "plugins": [
+        "prettier"
+    ],
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": 2020
+    },
+    "rules": {
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "no-multi-spaces": 2,
+        "block-spacing": [
+            "error",
+            "always"
+        ],
+        "comma-spacing": [
+            "error",
+            {
+                "before": false,
+                "after": true
+            }
+        ],
+        "key-spacing": [
+            "error",
+            {
+                "beforeColon": false,
+                "afterColon": true
+            }
+        ],
+        "keyword-spacing": [
+            "error",
+            {
+                "before": true
+            }
+        ],
+        "arrow-spacing": [
+            "error",
+            {
+                "before": true,
+                "after": true
+            }
+        ],
+        "curly": [
+            "error",
+            "all"
+        ],
+        "prettier/prettier": [
+            "error",
+            {
+                "endOfLine": "auto",
+                "printWidth": 128,
+                "tabWidth": 4,
+                "useTabs": false,
+                "semi": true,
+                "singleQuote": false,
+                "bracketSpacing": true
+            }
+        ]
+    }
+}
