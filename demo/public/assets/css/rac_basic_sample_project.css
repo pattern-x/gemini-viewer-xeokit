@@ -1,0 +1,241 @@
+.project-panel {
+  background-color: white;
+  text-decoration: none;
+  word-spacing: normal;
+  text-align: left;
+  letter-spacing: 0;
+  -webkit-font-smoothing: antialiased;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.canvas {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+#myNavCubeCanvas {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  bottom: 10px;
+  right: 10px;
+  z-index: 1;
+  opacity: 0.8;
+}
+
+#myNavCubeCanvas:hover {
+  opacity: 1;
+}
+
+#mySectionPlanesOverviewCanvas {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  bottom: 200px;
+  right: 10px;
+  z-index: 1;
+}
+
+#myAxisGizmoCanvas {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  bottom: 10px;
+  left: 10px;
+  z-index: 1;
+}
+
+.customize-pivot-marker {
+  color: #ffffff;
+  line-height: 1.8;
+  text-align: center;
+  font-family: "monospace";
+  font-weight: bold;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 15px;
+  border: 3px solid #ffffff;
+  background: #00D2B2;
+  visibility: hidden;
+  -webkit-box-shadow: 3px 3px 9px 1px #000000;
+          box-shadow: 3px 3px 9px 1px #000000;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* ----------------------------------------------------------------------------------------------------------*/
+/* TreeViewPlugin (Put it in a separate css file later)
+/* ----------------------------------------------------------------------------------------------------------*/
+#treeViewContainer {
+  visibility: hidden;
+  pointer-events: all;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.6);
+  color: black;
+  z-index: 1;
+  float: left;
+  left: 0;
+  padding: 10px;
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  text-align: left;
+  user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  width: 350px;
+}
+
+#treeViewContainer:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+#treeViewContainer ul {
+  list-style: none;
+  padding-left: 1.75em;
+  pointer-events: none;
+}
+
+#treeViewContainer ul li {
+  position: relative;
+  width: 500px;
+  pointer-events: none;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  vertical-align: middle;
+}
+
+#treeViewContainer ul li a {
+  background-color: #eee;
+  border-radius: 50%;
+  color: #000;
+  display: inline-block;
+  height: 1.5em;
+  left: -1.5em;
+  position: absolute;
+  text-align: center;
+  text-decoration: none;
+  width: 1.5em;
+  pointer-events: all;
+}
+
+#treeViewContainer ul li a.plus {
+  background-color: #ded;
+  pointer-events: all;
+}
+
+#treeViewContainer ul li a.minus {
+  background-color: #eee;
+  pointer-events: all;
+}
+
+#treeViewContainer ul li a:active {
+  top: 1px;
+  pointer-events: all;
+}
+
+#treeViewContainer ul li span:hover {
+  color: white;
+  cursor: pointer;
+  background: black;
+  padding-left: 2px;
+  pointer-events: all;
+}
+
+#treeViewContainer ul li span {
+  display: inline-block;
+  width: calc(100% - 50px);
+  padding-left: 2px;
+  pointer-events: all;
+  height: 23px;
+}
+
+#treeViewContainer .highlighted-node {
+  /* Appearance of node highlighted with TreeViewPlugin#showNode() */
+  border: black solid 1px;
+  background: yellow;
+  color: black;
+  padding-left: 1px;
+  padding-right: 5px;
+  pointer-events: all;
+}
+
+.xeokit-context-menu {
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  display: none;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.46);
+  border: 1px solid black;
+  border-radius: 6px;
+  padding: 0;
+  width: 220px;
+}
+
+.xeokit-context-menu ul {
+  list-style: none;
+  margin-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.xeokit-context-menu ul li {
+  list-style-type: none;
+  padding-left: 10px;
+  padding-right: 20px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  color: black;
+  border-bottom: 1px solid gray;
+  background: rgba(255, 255, 255, 0.46);
+  cursor: pointer;
+  width: calc(100% - 1px);
+}
+
+.xeokit-context-menu ul li:hover {
+  background: black;
+  color: white;
+  font-weight: bold;
+}
+
+.xeokit-context-menu ul li span {
+  display: inline-block;
+}
+
+.xeokit-context-menu .disabled {
+  display: inline-block;
+  color: gray;
+  cursor: default;
+  font-weight: normal;
+}
+
+.xeokit-context-menu .disabled:hover {
+  color: gray;
+  cursor: default;
+  background: #eeeeee;
+  font-weight: normal;
+}
+
+.xeokit-context-menu .xeokit-context-submenu {
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  display: none;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.46);
+  border: 1px solid black;
+  border-radius: 0 6px 6px 6px !important;
+  padding: 0;
+  width: 200px;
+}
+/*# sourceMappingURL=project.css.map */

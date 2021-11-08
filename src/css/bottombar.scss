@@ -1,0 +1,69 @@
+.gemini-bottom-bar {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    color: $gemini-grey2;
+    z-index: 1;
+    overflow: hidden;
+
+    i {
+        font-size: 20px;
+        padding: 3px;
+        align-self: center;
+        opacity: 0.4;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 1;
+        }
+
+        &.item-active {
+            color: $gemini-active;
+            opacity: 1;
+        }
+    }
+
+    .fps {
+        width: 4rem;
+    }
+
+    span {
+        align-self: center;
+        padding: 4px;
+        font-size: 14px;
+    }
+}
+
+#statistic-tooltip,
+#camerainfo-tooltip {
+    position: absolute;
+    left: 5px;
+    bottom: 30px;
+    background: $gemini-grey2;
+    color: white;
+    padding: 8px 8px 5px 8px;
+    font-size: 14px;
+    border-radius: 4px;
+    z-index: 1;
+    opacity: 0.9;
+
+    p {
+        padding-bottom: 3px;
+        span {
+            float: left;
+            margin-right: 10px;
+        }
+    }
+}
+
+#statistic-tooltip {
+    p span {
+        width: 55px;
+    }
+}
+
+#camerainfo-tooltip {
+    p span {
+        width: 24px;
+    }
+}

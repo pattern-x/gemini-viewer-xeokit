@@ -1,0 +1,75 @@
+<html>
+
+<head></head>
+
+<body>
+    <div class="project-panel">
+        <canvas id="myCanvas" class="canvas"></canvas>
+        <canvas id="myNavCubeCanvas"></canvas>
+        <canvas id="mySectionPlanesOverviewCanvas"></canvas>
+        <canvas id="myAxisGizmoCanvas"></canvas>
+    </div>
+    <script type="module">
+        import { BimViewer, KeyBoardRotatePlugin } from "./dist/gemini-viewer.esm.js";
+
+        const project = {
+            id: "dxf_details",
+            name: "dxf_details",
+            thumbnail: "/projects/dxf_test/thumbnail.png",
+            camera: {
+                eye: [0, 37, 0],
+                look: [0, 0, 0],
+                up: [0, 0, -1],
+                far: 3000,
+                near: -3000,
+            },
+            models: [
+                {
+                    name: "dxf_details",
+                    src: "/projects/dxf_test/api-cw750-details.dxf",
+                    position: [0, 0, 0],
+                    rotation: [180, 0, 0],
+                    scale: [1, 1, 1],
+                    edges: true,
+                    visible: true,
+                },
+            ],
+        };
+        const bimViewer = new BimViewer(
+            {
+                canvasId: "myCanvas",
+                navCubeCanvasId: "myNavCubeCanvas",
+                axisGizmoCanvasId: "myAxisGizmoCanvas",
+            },
+            project.camera
+        );
+        new KeyBoardRotatePlugin(bimViewer.viewer);
+        // loadProjectModel
+        let counter = 0; // to indicate how many models are loading
+        let fontLoadingOrLoaded = false;
+        project.models.forEach(async (modelCfg) => {
+            if (modelCfg.visible === false) {
+                // visible is true by default
+                return; // only load visible ones
+            }
+            const src = modelCfg.src;
+            const format = src.substring(src.lastIndexOf(".") + 1);
+            if (format.toLowerCase() === "dxf" && !fontLoadingOrLoaded) {
+                fontLoadingOrLoaded = true;
+                await bimViewer.loadFont("/fonts/Microsoft YaHei_Regular.typeface.json");
+            }
+
+            counter++;
+            bimViewer.loadModel(modelCfg, () => {
+                counter--;
+                if (counter === 0) {
+                    if (bimViewer.has2dModel && !bimViewer.has3dModel) {
+                        bimViewer.active2dMode();
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

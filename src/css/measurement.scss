@@ -1,0 +1,49 @@
+.viewer-ruler-dot {
+    border-left: 2px solid white !important;
+    border-radius: 50% !important;
+    width: 12px !important;
+    height: 12px !important;
+    background: $gemini-length-color !important;
+}
+
+.viewer-ruler-wire {
+    border-bottom: none !important;
+    border-left: none !important;
+    border-right: none !important;
+}
+
+.viewer-ruler-label {
+    border-radius: 3px !important;
+}
+
+.length-wire {
+    border-top: 3px solid $gemini-length-color !important;
+}
+
+.x-axis-wire {
+    border-top: 3px dashed $gemini-x-color !important;
+}
+
+.y-axis-wire {
+    border-top: 3px dashed $gemini-y-color !important;
+}
+
+.z-axis-wire {
+    border-top: 3px dashed $gemini-z-color !important;
+}
+
+.length-label {
+    background: $gemini-length-color !important;
+}
+
+.x-axis-label {
+    background: $gemini-x-color !important;
+}
+
+.y-axis-label {
+    background: $gemini-y-color !important;
+}
+
+.z-axis-label {
+    background: $gemini-z-color !important;
+}

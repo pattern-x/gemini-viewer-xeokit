@@ -1,0 +1,60 @@
+{
+  "name": "@pattern-x/gemini-viewer",
+  "version": "1.0.5",
+  "description": "gemini-viewer sdk",
+  "module": "dist/gemini-viewer.esm.min.js",
+  "types": "dist/types/index.d.ts",
+  "scripts": {
+    "clean": "rimraf dist build",
+    "build": "npm run clean && npm run lint && webpack --config webpack.esm.config.js --mode=production --node-env=production",
+    "build:dev": "rimraf build && npm run lint && webpack --config webpack.esm.config.js --mode=development --node-env=development",
+    "demo": "npm run build:dev && node demo/index.js",
+    "docs": "typedoc src/index.ts",
+    "start": "webpack serve --open",
+    "lint": "eslint --ext .ts src"
+  },
+  "keywords": [],
+  "author": "",
+  "dependencies": {
+    "@types/earcut": "^2.1.1",
+    "@xeokit/xeokit-sdk": "^2.0.7",
+    "dxf-parser": "^1.0.0-alpha.2",
+    "earcut": "^2.2.3",
+    "gl-matrix": "^3.3.0"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.175",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "@webpack-cli/generators": "^2.3.0",
+    "cp-file": "^9.1.0",
+    "css-loader": "^6.2.0",
+    "dts-bundle": "^0.7.3",
+    "dts-bundle-webpack": "^1.0.2",
+    "eslint": "^8.0.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-webpack-plugin": "^3.0.1",
+    "express": "^4.17.1",
+    "html-webpack-plugin": "^5.3.2",
+    "prettier": "^2.4.1",
+    "rimraf": "^3.0.2",
+    "sass": "^1.40.0",
+    "sass-loader": "^12.1.0",
+    "style-loader": "^3.2.1",
+    "terser-webpack-plugin": "^5.2.4",
+    "ts-loader": "^9.2.5",
+    "typedoc": "^0.22.7",
+    "typescript": "^4.4.3",
+    "webpack": "^5.52.1",
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-server": "^4.3.1"
+  },
+  "files": [
+    "/dist"
+  ],
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "http://git.bimg.shop/panda/gemini-viewer"
+  }
+}
