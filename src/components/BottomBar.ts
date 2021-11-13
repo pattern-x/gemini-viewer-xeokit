@@ -172,7 +172,10 @@ export class BottomBar {
             const time = tickEvent.time;
             if (lastTime > 0) {
                 // Log FPS stats
-                const elapsedTime = time - lastTime;
+                let elapsedTime = time - lastTime;
+                if (elapsedTime < 0.001) {
+                    elapsedTime = 0.001; // it's possibly to run really fast, thus elapsedTime is 0!
+                }
                 const newFPS = 1000 / elapsedTime; // Moving average of FPS
                 totalFPS += newFPS;
                 fpsSamples.push(newFPS);
