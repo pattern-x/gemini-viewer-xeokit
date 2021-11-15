@@ -47,6 +47,11 @@
             font-size: 24px;
         }
 
+        .icon::before {
+            position: relative;
+            top: -0.4rem;
+        }
+
         span {
             display: block;
             width: 100%;
