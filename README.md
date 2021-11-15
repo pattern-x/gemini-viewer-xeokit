@@ -12,6 +12,29 @@ To generate the documents:
 ```
 npm run docs
 ```
+
+## Features
+- Orthographic camera
+![ortho.gif](public/snapshots/ortho.gif)
+
+- Distance measurement
+![measure_dist.gif](public/snapshots/measure_dist.gif)
+
+- Section plane
+![section_plane.gif](public/snapshots/section_plane.gif)
+
+- Section box
+![section_box.gif](public/snapshots/section_box.gif)
+
+- Navigation cube
+![select.gif](public/snapshots/nav_cube.gif)
+
+- Pivot
+![outline.gif](public/snapshots/pivot.gif)
+
+- Context menu
+![transparent.gif](public/snapshots/context_menu.gif)
+
 ## Examples
 To run the demo:
 ```
@@ -115,25 +138,3 @@ project.models.forEach((modelCfg) => {
 | activeOrthoMode       | boolean          | - optional                            | Enter ortho mode by default.                                                                                                         |
 | locale                | "cn" &#124; "en" | - optional <br> - default: `"cn"`     | Sets the default locale.                                                                                                             |
 | skyBoxImgSrc          | string           | - optional                            | The image src of the skybox.<br> It will use default background color when this param is empty.                                      |
-
-## Features
-- Orthographic camera
-![ortho.gif](public/snapshots/ortho.gif)
-
-- Distance measurement
-![measure_dist.gif](public/snapshots/measure_dist.gif)
-
-- Section plane
-![section_plane.gif](public/snapshots/section_plane.gif)
-
-- Section box
-![section_box.gif](public/snapshots/section_box.gif)
-
-- Navigation cube
-![select.gif](public/snapshots/nav_cube.gif)
-
-- Pivot
-![outline.gif](public/snapshots/pivot.gif)
-
-- Context menu
-![transparent.gif](public/snapshots/context_menu.gif)
