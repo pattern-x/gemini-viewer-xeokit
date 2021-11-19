@@ -636,7 +636,7 @@ export class BimViewer extends Controller {
     /**
      * Goes to home view
      */
-    goToHomeView(duration: number = 0.5) {
+    goToHomeView(duration = 0.5) {
         const viewer = this.viewer;
         let eye = [50, 50, 50];
         let look = [0, 5, 0];
