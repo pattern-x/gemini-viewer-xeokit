@@ -1,6 +1,6 @@
 {
   "name": "@pattern-x/gemini-viewer",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "gemini-viewer sdk",
   "module": "dist/gemini-viewer.esm.min.js",
   "types": "dist/types/index.d.ts",
