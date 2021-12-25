@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------
+This repo is licensed under the Affero GPL V3 license.
+
+For more information please reference to: https://github.com/xeokit/xeokit-sdk/blob/master/LICENSE.txt
